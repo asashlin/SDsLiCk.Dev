@@ -1,0 +1,52 @@
+FILE: 		   (UsingStmnt | NamespaceDclr)* -> SourceFile #FilePath
+
+UsingStmnt:    "using" Namespace ';' -> UsingStmnt $Namespace
+
+NamespaceDclr: "namespace" QName =>> BLOCK{NS} << -> NamespaceDclr $QName		; => specifies create object per '->' and stack 
+
+QName:	       ['.' ^Namespace ]# ?'.'? ?Identifier -> QName $Namespace $Identifier    ; ? indicates that 'Identifier' must be looked ahead as it would otherwise be consumed by 'Namespace' and it would fail by not being found
+
+Namespace:     > ['.' &Identifier]# < -> Namespace $=
+
+BLOCK{NS}:     ClassDclr, StructDclr InterfaceDclr | EnumDclr | DelegateDclr | EventDclr
+			   
+ClassDclr:	   Modifiers "class" QName Inheritance =>> BLOCK{CL}; << -> ClassDclr $QName 
+
+StructDclr:		...
+InterfaceDclr:	...
+EnumDclr:		...
+DelegateDclr:	...
+EventDclr:		...
+
+BLOCK{CL}:     CtorDclr | MethodDclr
+
+MethodDclr:		Constructor | Method
+
+Constructor		Modifiers
+
+Modifiers:	    ...
+Inheritance:    ...
+
+
+
+
+:End
+
+QName:	       [^Namespace ?'.']? ?Identifier -> QName $Namespace $Identifier     ; '^' indicates that the results should be held, i.e. for lookahead. The Start and Stop Source Object are recorded and the Parse Action is delayed
+; lookahead is actually implemented by consuming tokens backwards from the point found as 'End'. As e.g. above, a Namespace is found but not created, only the Start and End objects are recorded. Start from 'End' Identifier and then '.' are consumed What left over is then used to create the Namespace which is passed to the QName Struct object with the last Identifier 
+
+
+"keyword"
+'operator'		Symbol token (non-alphanumeric) that is recorded as an Operator 
+
+[...]			Defines a set of Tokens that are optional, i.e. may appear 0 to 1 times
+[...]*			Defines a set of Tokens that are optional and can be repeated, i.e. may appear 0 to many times
+[...]+			Defines a set of Tokens that are mandatory, but can be repeated, i.e. may appear 1 to many times
+[...]#			Defines a set of Tokens like for '+', except the 1st token (or set of tokens enclosed in "[...]") are not checked on the 1st iteration. This is useful for structures using a separator between items 
+				Namespaces can be parse with "['.' &Identifier]#" ... '[[...]...]#' is used for multiple separators, e.g. to parse "X::Y::Z"  define "[[':' ':'] &Identifier]#". (actually "['::' &Identifier]#" would be better")
+				
+BLOCK{ver}		A short hand for producing a block '{' CONTENT '}' structure, where the 'ver' references a definition containing a list of Grammas applicable to that version. Implemented as a single called gramma with a call
+				to a method given the Gramma applicable, which checks for these Grammas and accepts or rejects based on this list
+				
+BLOCK{ver};		AS for above, accept a single statement terminated by a ';' is also accepted
+

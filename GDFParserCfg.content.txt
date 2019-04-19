@@ -1,0 +1,15 @@
+` GDF Paser Configuration Property content file: lines Regex patern count | Regex pattern preceded by its name+ | Token ID Records "",    copy after this line
+` TODO: this has been set up as a hack to work, but needs be updated when the token detection code is refactored
+1
+(?:\s*(?:(?<cmd>/(?<name>[a-zA-Z_][a-zA-Z0-9_]*)(?<match>(?<indicator>[{[(])(?<identifier>[a-zA-Z_][a-zA-Z0-9_]*)[]})])?)|(?<macro>(?<indicator>[*$&?^%#])(?<identifier>[a-zA-Z_][a-zA-Z0-9_]*))|(?<name>(?<identifier>[a-zA-Z_][a-zA-Z0-9_]*)(?<indicator>:)?)|(?<string>"(?<text>[^"\\\r\n]*(?:\\.[^"\\\r\n]*)*)")|(?<symbol>'(?<text>[^'\\\r\n]*(?:\\.[^'\\\r\n]*)*)')|(?<operator>[]=[()<*+#>{}-]{1,2})))|(?:\s*`.*$)|(?:\s*$)macro,indicator,name,string,symbol,operator
+cmd,macro,indicator,name,string,symbol,operator
+GrammaDef,cmd,,,name,Command
+GrammaDef,indicator,indicator,:,identifier,GDef
+OptList,indicator,,,name,Error
+GrammaDef|OptList,name,,,identifier,GRef
+GrammaDef|OptList,string,,,text,Keyword
+GrammaDef|OptList,symbol,,,text,Symbol
+GrammaDef|OptList,operator,,,operator,Operator
+ActionObject,name,,,identifier,ClassName
+ActionObject,macro,indicator,$,macro,Parameter
+

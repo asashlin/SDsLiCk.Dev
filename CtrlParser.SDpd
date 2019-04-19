@@ -1,0 +1,65 @@
+`?Options Token ?Symbol          `|Symbol will define the Symbol list from Parser Definition
+`?Options Token ~Keyword !alphanumeric, !Identifier, !Integer, !Symbol
+`?Keyword None
+?Options ~Keyword
+
+*Preliminary = 
+*Initialise	= "m_scanRE"; token, namespace, alphanumeric, identifier, symbol
+<component> = identifier
+<control> = identifier
+<method> = identifier
+<property> = identifier
+<param> = alphanumeric
+
+"" = alphanumeric
+'' = symbol
+
+`<state> = macro[*]     `declare an alias called 'state' that matches a 1st char of '*'
+`<alias> = <group[n,match]> -match char or string
+
+* = Preliminary
+*Preliminary : %Preliminary       `test with { %Preliminary }
+*Initialise '{'
+	>	this '.' ->
+			-> <component> {l_name=$} ->
+				-> '=' new <namespace> <control> '();' { %RecordComponent } `Parse 'new' component object statement
+				-> $Method													`Parse component initialisation 'method'
+		    :
+			-> $Method														`Parse Control/Form initialisation 'method'
+
+	|	?'//' *= configCtrl	
+	
+*configCtrl
+		> $// $// <component> %SetConfigComponent $//
+
+		| this '.' <component> '.' <property> { CheckCtrl($); } ->
+			-> "." ->
+				-> ?Add $Method %AddObject
+				-> ?AddRange $Method %AddObjects	
+				:
+			-> '=' 
+		| this '.' <component>
+		| '$'	*=	*declaration
+
+*declaration
+	>	("private"	|	"protected"	|	"internal"	["protected"]	"public")
+		<namespace>	'.'	<control>	<component>	$;
+	| '}' '}'
+	
+$EOF
+
+$Method  => <method> '(' [&',' <param>]+ ');' >=     `This macro Stacks current State and Pops it when done
+
+%Preliminary
+{
+
+}
+
+%RecordComponent
+{
+
+}
+
+%SetConfigComponent
+{
+}
