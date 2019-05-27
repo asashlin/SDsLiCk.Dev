@@ -1,39 +1,51 @@
-Begin:			[UsingStmnt]* [NamespaceDclr]*
+Begin:		   [UsingStmnt]* [NamespaceDclr]*
+
+UsingStmnt:    "using" Namespace ';' => { UsingStmnt $Namespace }
+
+NamespaceDclr: "namespace" QName '{' Block_NS '}' => { NamespaceDclr $QName }
+
+Block_NS:	   [ClassDclr | StructDclr  | InterfaceDclr | EnumDclr | DelegateDclr | EventDclr]*
+
 /End
-UsingStmnt:     "using" Namespace ';' => UsingStmnt $Namespace
 
-NamespaceDclr:  "namespace" QName /Alt{Block_NS}* => NamespaceDclr($QName)
+ClassDclr:	   Modifiers = ?Empty("_public") "class" QName Inheritance => (';' | '{' Block_CL '}') { ClassDclr $Modifiers $QName $Inheritance }
 
-QName:	        ['.'; ?Identifier =$name ~'.' | &Identifier =+$namespace ]+ ?'.'?  -> QName($name Namespace($namespace))
+Block_CL:     ... ?'}' => { Text $$ }
+`Block_CL:     CtorDclr | MethodDclr | ClassDclr | StructDclr  | InterfaceDclr | EnumDclr | DelegateDclr | EventDclr | TypeDclr | ObjectDclr
 
-Namespace:      ['.'; &Identifier]+ -> Namespace $$
+StructDclr:	   Modifies = ?Empty("_public") "struct" QName => '{' [ObjectDclr | CtorDclr | MethodDclr]* '}' => { $Modifiers $QName }
 
-Block_NS:	    ClassDclr | StructDclr  | InterfaceDclr | EnumDclr | DelegateDclr | EventDclr
-			   
-ClassDclr:	    Modifiers "class" QName Inheritance =>> /{Block_CL}; << => ClassDclr $QName 
+QName:	       ['.'; ?Identifier ~'.' =$name | &Identifier =+$namespace]+ => { QName $name $namespace }
 
-StructDclr:		...
-InterfaceDclr:	...
-EnumDclr:		...
+Namespace:     ['.'; &Identifier]+ =>  { Namespace $$ }
+
+`Built in types variable declaration including initialisation
+TypeDclr:		Modifies = ?Empty("_private") VarName(&Identifiers) TypeName [Initialiser] => { $Modifiers $VarName $TypeName $Initialiser }
+
+ObjectDclr:		Modifies = ?Empty("_private") VarName(&Identifiers) ObjectName [NewObject] => { $Modifiers $VarName $ObjectName $NewObject }
+
+
+
+Modifiers:	    ["public" | "internal" | "protected" | "private"  | "partial" | "abstract" | "static" | "readonly"]* = $$
+
+` HACK: captures inherited class and interfaces only -where clause captured 'as is' text  
+Inheritance:    [ ':' [','; &Identifier]+ $$= ... ?'{' $Where= ] = $$ $Where
+
+InterfaceDclr:	... '{' ... '}'
+EnumDclr:		... '{' ... '}'
 DelegateDclr:	...
 EventDclr:		...
 
-Block_CL:		CtorDclr | MethodDclr
+MethodDclr:		Modifiers = ?Empty("_public") ReturnType &Identifier (/Alt{Block_ST} | Block_ST) => MethodDclr &Identifier
 
-MethodDclr:		Constructor | Method
-
-Constructor		Modifiers
-
-Modifiers:	    ...
-Inheritance:    ...
 
 /End
 
+Namespace:     ['.'; &Identifier]+ => Namespace $$
 
 
 QName:	       [^Namespace ?'.']? ?Identifier -> QName $Namespace $Identifier     ; '^' indicates that the results should be held, i.e. for lookahead. The Start and Stop Source Object are recorded and the Parse Action is delayed
 ; lookahead is actually implemented by consuming tokens backwards from the point found as 'End'. As e.g. above, a Namespace is found but not created, only the Start and End objects are recorded. Start from 'End' Identifier and then '.' are consumed What left over is then used to create the Namespace which is passed to the QName Struct object with the last Identifier 
-
 
 "keyword"
 'operator'		Symbol token (non-alphanumeric) that is recorded as an Operator 
@@ -41,11 +53,21 @@ QName:	       [^Namespace ?'.']? ?Identifier -> QName $Namespace $Identifier    
 [...]			Defines a set of Tokens that are optional, i.e. may appear 0 to 1 times
 [...]*			Defines a set of Tokens that are optional and can be repeated, i.e. may appear 0 to many times
 [...]+			Defines a set of Tokens that are mandatory, but can be repeated, i.e. may appear 1 to many times
-[...]#			Defines a set of Tokens like for '+', except the 1st token (or set of tokens enclosed in "[...]") are not checked on the 1st iteration. This is useful for structures using a separator between items 
+structures using a separator between items 
 				Namespaces can be parse with "['.' &Identifier]#" ... '[[...]...]#' is used for multiple separators, e.g. to parse "X::Y::Z"  define "[[':' ':'] &Identifier]#". (actually "['::' &Identifier]#" would be better")
+				
+=> class [parameters]      "$Class $class = new $class(<parameters>);"   - 
+-> method [parameters]     "$method(<parametes>);"
+-> property = value        "$property = $value;"
 				
 BLOCK{ver}		A short hand for producing a block '{' CONTENT '}' structure, where the 'ver' references a definition containing a list of Grammas applicable to that version. Implemented as a single called gramma with a call
 				to a method given the Gramma applicable, which checks for these Grammas and accepts or rejects based on this list
 				
 BLOCK{ver};		AS for above, accept a single statement terminated by a ';' is also accepted
 
+
+GrammaDef,indicator,:,identifier,GDef
+GrammaDef,identifier,,identifier,GRef
+GrammaDef,keyword,,text,Keyword
+GrammaDef,symbol,,text,Symbol
+GrammaDef,operator,,text,Operator

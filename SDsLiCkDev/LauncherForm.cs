@@ -24,8 +24,8 @@ namespace SDsLiCk.Dev
             // HACK: hardwired for now
             m_formList.Add("IBA.SDsLiCk.CodeGen.Simple", @"D:\Users\Tony\MyProjects\IBA\SDsLiCk\CodeGen\Simple.cs");
             m_formList.Add("SDsLiCk.Dev.LauncherForm", @"D:\Users\Tony\MyProjects\IBA\SDsLiCk\SDsLiCk.Dev\SDsLiCkDev\LauncherForm.cs");
-            c_clbForms.Items.Add("IBA.SDsLiCk.CodeGen.Simple", true);
-            c_clbForms.Items.Add("SDsLiCk.Dev.LauncherForm", false);
+            c_clbForms.Items.Add("IBA.SDsLiCk.CodeGen.Simple", false);
+            c_clbForms.Items.Add("SDsLiCk.Dev.LauncherForm", true);
             CtrlParser.GenerateGDTree(c_tvGDTree);
         }
 

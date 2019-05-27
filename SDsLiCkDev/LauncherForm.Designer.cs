@@ -42,9 +42,9 @@
             this.c_splGUIBldr = new System.Windows.Forms.SplitContainer();
             this.c_tpGDTree = new System.Windows.Forms.TabPage();
             this.c_tvGDTree = new System.Windows.Forms.TreeView();
+            this.c_ilIcons = new System.Windows.Forms.ImageList(this.components);
             this.c_tpParseTree = new System.Windows.Forms.TabPage();
             this.c_tvParseTree = new System.Windows.Forms.TreeView();
-            this.c_ilIcons = new System.Windows.Forms.ImageList(this.components);
             this.c_tcProject.SuspendLayout();
             this.c_tpFormAnalyser.SuspendLayout();
             this.c_tpGUIBldr.SuspendLayout();
@@ -198,6 +198,28 @@
             this.c_tvGDTree.Size = new System.Drawing.Size(755, 387);
             this.c_tvGDTree.TabIndex = 1;
             // 
+            // c_ilIcons
+            // 
+            this.c_ilIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("c_ilIcons.ImageStream")));
+            this.c_ilIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.c_ilIcons.Images.SetKeyName(0, "Error");
+            this.c_ilIcons.Images.SetKeyName(1, "Warning");
+            this.c_ilIcons.Images.SetKeyName(2, "CSFile");
+            this.c_ilIcons.Images.SetKeyName(3, "GrammaDef");
+            this.c_ilIcons.Images.SetKeyName(4, "GrammaRef");
+            this.c_ilIcons.Images.SetKeyName(5, "Optional");
+            this.c_ilIcons.Images.SetKeyName(6, "List");
+            this.c_ilIcons.Images.SetKeyName(7, "OptList");
+            this.c_ilIcons.Images.SetKeyName(8, "Group");
+            this.c_ilIcons.Images.SetKeyName(9, "AltBlock");
+            this.c_ilIcons.Images.SetKeyName(10, "SeqBlock");
+            this.c_ilIcons.Images.SetKeyName(11, "LoopBack");
+            this.c_ilIcons.Images.SetKeyName(12, "Operator");
+            this.c_ilIcons.Images.SetKeyName(13, "Keyword");
+            this.c_ilIcons.Images.SetKeyName(14, "Symbol");
+            this.c_ilIcons.Images.SetKeyName(15, "Action");
+            this.c_ilIcons.Images.SetKeyName(16, "Empty");
+            // 
             // c_tpParseTree
             // 
             this.c_tpParseTree.Controls.Add(this.c_tvParseTree);
@@ -218,19 +240,6 @@
             this.c_tvParseTree.Name = "c_tvParseTree";
             this.c_tvParseTree.Size = new System.Drawing.Size(776, 403);
             this.c_tvParseTree.TabIndex = 0;
-            // 
-            // c_ilIcons
-            // 
-            this.c_ilIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("c_ilIcons.ImageStream")));
-            this.c_ilIcons.TransparentColor = System.Drawing.Color.Transparent;
-            this.c_ilIcons.Images.SetKeyName(0, "CSFile");
-            this.c_ilIcons.Images.SetKeyName(1, "Gramma");
-            this.c_ilIcons.Images.SetKeyName(2, "Optional");
-            this.c_ilIcons.Images.SetKeyName(3, "List");
-            this.c_ilIcons.Images.SetKeyName(4, "OptList");
-            this.c_ilIcons.Images.SetKeyName(5, "Group");
-            this.c_ilIcons.Images.SetKeyName(6, "Keyword");
-            this.c_ilIcons.Images.SetKeyName(7, "Symbol");
             // 
             // LauncherForm
             // 
