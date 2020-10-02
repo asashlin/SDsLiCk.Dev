@@ -1,0 +1,10 @@
+UsingDir: "using" *Namespace ';'
+Namespace: &Identifier '.' < 
+Namespace: &Identifier ~'.'
+
+` "keyword"
+` 'symbol'
+` &name   Token by 'name'
+` ~object not object - i.e. one of above, accepts if not this object
+` *object 
+` <       loop back to start 

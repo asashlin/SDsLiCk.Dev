@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="IBA.SDsLiCk.CodeGen.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Keywords" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">using namespace class if else</Value>
+    </Setting>
+    <Setting Name="Operators" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">. , ; : ( ) { } [ ] = += -= == &gt;= &lt;= &lt; &gt; &lt;&lt; &gt;&gt; &amp; &amp;&amp; | ||</Value>
+    </Setting>
+    <Setting Name="Modifiers" Type="System.String" Scope="User">
+      <Value Profile="(Default)">abstract static public protected private internal readonly</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

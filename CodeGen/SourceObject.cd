@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IBA.SDsLiCk.CodeGen.SourceStruct">
+    <Position X="0.5" Y="3.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="IBA.SDsLiCk.CodeGen.SourceStruct.Type">
+        <TypeIdentifier>
+          <NewMemberFileName>SourceStruct.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <AssociationLine Name="Next" Type="IBA.SDsLiCk.CodeGen.SourceStruct" ManuallyRouted="true">
+      <Path>
+        <Point X="1.209" Y="8.756" />
+        <Point X="1.209" Y="9.436" />
+        <Point X="1.805" Y="9.436" />
+        <Point X="1.805" Y="8.756" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAgAAAAAAAEAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>SourceStruct.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="File" />
+      <Property Name="Next" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IBA.SDsLiCk.CodeGen.SourceFile">
+    <Position X="4" Y="4.25" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="IBA.SDsLiCk.CodeGen.SourceFile.Type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SourceFile.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAIAAJAAQAAABAAAA=</HashCode>
+      <FileName>SourceFile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SourceStruct" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IBA.SDsLiCk.CodeGen.SourceRef">
+    <Position X="3.5" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SourceRef.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="FileList" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="IBA.SDsLiCk.CodeGen.SourceSnippet">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAJAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAFAAAA=</HashCode>
+      <FileName>SourceSnippet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IBA.SDsLiCk.CodeGen.StructBldr">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAIAAAAAAIAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StructBldr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IBA.SDsLiCk.CodeGen.SourceObject">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAAEAAACQFAAAA=</HashCode>
+      <FileName>SourceObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IBA.SDsLiCk.CodeGen.ErrorObj">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ErrorObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

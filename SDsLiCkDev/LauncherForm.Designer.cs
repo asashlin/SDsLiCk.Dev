@@ -68,7 +68,7 @@
             this.c_tcProject.Location = new System.Drawing.Point(13, 13);
             this.c_tcProject.Name = "c_tcProject";
             this.c_tcProject.SelectedIndex = 0;
-            this.c_tcProject.Size = new System.Drawing.Size(775, 425);
+            this.c_tcProject.Size = new System.Drawing.Size(814, 500);
             this.c_tcProject.TabIndex = 0;
             // 
             // c_tpFormAnalyser
@@ -80,14 +80,14 @@
             this.c_tpFormAnalyser.Controls.Add(this.c_butAnalyse);
             this.c_tpFormAnalyser.Location = new System.Drawing.Point(4, 22);
             this.c_tpFormAnalyser.Name = "c_tpFormAnalyser";
-            this.c_tpFormAnalyser.Size = new System.Drawing.Size(767, 399);
+            this.c_tpFormAnalyser.Size = new System.Drawing.Size(806, 474);
             this.c_tpFormAnalyser.TabIndex = 1;
             this.c_tpFormAnalyser.Text = "Form Analyser";
             // 
             // c_butTEST
             // 
             this.c_butTEST.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.c_butTEST.Location = new System.Drawing.Point(109, 370);
+            this.c_butTEST.Location = new System.Drawing.Point(109, 445);
             this.c_butTEST.Name = "c_butTEST";
             this.c_butTEST.Size = new System.Drawing.Size(75, 23);
             this.c_butTEST.TabIndex = 3;
@@ -111,7 +111,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.c_clbForms.Location = new System.Drawing.Point(15, 29);
             this.c_clbForms.Name = "c_clbForms";
-            this.c_clbForms.Size = new System.Drawing.Size(736, 334);
+            this.c_clbForms.Size = new System.Drawing.Size(775, 409);
             this.c_clbForms.Sorted = true;
             this.c_clbForms.TabIndex = 1;
             this.c_clbForms.ThreeDCheckBoxes = true;
@@ -120,7 +120,7 @@
             // c_butAnalyse
             // 
             this.c_butAnalyse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.c_butAnalyse.Location = new System.Drawing.Point(15, 370);
+            this.c_butAnalyse.Location = new System.Drawing.Point(15, 445);
             this.c_butAnalyse.Name = "c_butAnalyse";
             this.c_butAnalyse.Size = new System.Drawing.Size(75, 23);
             this.c_butAnalyse.TabIndex = 0;
@@ -134,7 +134,7 @@
             this.c_tpGUIBldr.Controls.Add(this.c_pnlCtrlHlder);
             this.c_tpGUIBldr.Location = new System.Drawing.Point(4, 22);
             this.c_tpGUIBldr.Name = "c_tpGUIBldr";
-            this.c_tpGUIBldr.Size = new System.Drawing.Size(767, 399);
+            this.c_tpGUIBldr.Size = new System.Drawing.Size(806, 474);
             this.c_tpGUIBldr.TabIndex = 2;
             this.c_tpGUIBldr.Text = "GUIBldr";
             // 
@@ -153,7 +153,7 @@
             this.c_tpSrcTreeEditor.Location = new System.Drawing.Point(4, 22);
             this.c_tpSrcTreeEditor.Name = "c_tpSrcTreeEditor";
             this.c_tpSrcTreeEditor.Padding = new System.Windows.Forms.Padding(3);
-            this.c_tpSrcTreeEditor.Size = new System.Drawing.Size(767, 399);
+            this.c_tpSrcTreeEditor.Size = new System.Drawing.Size(806, 474);
             this.c_tpSrcTreeEditor.TabIndex = 0;
             this.c_tpSrcTreeEditor.Text = "SourceTree Editor";
             // 
@@ -170,8 +170,8 @@
             // c_splGUIBldr.Panel2
             // 
             this.c_splGUIBldr.Panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.c_splGUIBldr.Size = new System.Drawing.Size(761, 393);
-            this.c_splGUIBldr.SplitterDistance = 487;
+            this.c_splGUIBldr.Size = new System.Drawing.Size(800, 468);
+            this.c_splGUIBldr.SplitterDistance = 511;
             this.c_splGUIBldr.TabIndex = 0;
             // 
             // c_tpGDTree
@@ -245,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(839, 525);
             this.Controls.Add(this.c_tcProject);
             this.Name = "LauncherForm";
             this.Text = "SDsLiCk Development Launcher";
