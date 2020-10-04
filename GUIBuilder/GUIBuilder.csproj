@@ -45,8 +45,9 @@
     <Reference Include="XSystem.Exceptions">
       <HintPath>..\..\..\..\XSystem\XSystem\System\ExtendedExceptions\bin\Release\XSystem.Exceptions.dll</HintPath>
     </Reference>
-    <Reference Include="XSystem.IO.FileRef">
-      <HintPath>..\..\..\..\XSystem\XSystem\IO\FileRef\bin\Release\XSystem.IO.FileRef.dll</HintPath>
+    <Reference Include="XSystem.IO.FileRef, Version=1.1.7087.39788, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\XSystem\IO\FileRef\bin\Release\XSystem.IO.FileRef.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

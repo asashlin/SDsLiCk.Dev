@@ -8,8 +8,15 @@ namespace IBA.SDsLiCk.CodeGen
 {
 	public class SourceRef
 	{
-        //private StructBldr m_structBldr;
-        public SourceFile[] FileList { get; private set; }
+		public string Name { get; }
+		public SourceFile[] FileList { get; private set; }   
+		
+		protected SourceRef(string name, FileRef fileRef, SourceFile.Type type)
+        {
+			Name = name;
+			FileList = new SourceFile[1];
+			FileList[0] = new SourceFile(fileRef, type);
+		}
  
         public SourceRef(FileRef srcFile)
 		{

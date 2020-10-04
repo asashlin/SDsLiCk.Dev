@@ -5,29 +5,26 @@ using System.Text;
 
 namespace IBA.SDsLiCk.CodeGen
 {
-    /// <summary>Base class for various SourceStructs, including SourceContainer derived classes</summary>
+    /// <summary>
+    /// Base class for various SourceStructs, including SourceContainer derived classes
+    /// </summary>
     /// <remarks>
-    /// Is base to SourceContainer and SourceStruct and SourceContainer dervived clases are collectively known as SourceStruct...
+    /// Is base to SourceContainer and SourceStruct and SourceContainer dervived clases
+    /// are collectively known as SourceStruct...
     /// </remarks>
     public abstract class SourceStruct : SourceSnippet
     {
-        public enum Type
-        {
-            Null, Unknown, Identifying = Unknown, Using, NamespaceDeclr, Class, Struct, Delegate, Block,
-            Namespace, QName, Modifiers
-        }
-
         public SourceStruct Next { get; private set; }
         public SourceFile File { get; }
 
-        protected SourceStruct(string name, SourceObject start, Type type, SourceFile srcFile)
+        protected SourceStruct(string name, SourceObject start, SourceType type, SourceFile srcFile)
             : base(name, start, type)
         {
             Next = null;
             File = srcFile;
         }
 
-        protected SourceStruct(SourceObject start, Type type, SourceFile srcFile)
+        protected SourceStruct(SourceObject start, SourceType type, SourceFile srcFile)
             : base(start, type)
         {
             Next = null;

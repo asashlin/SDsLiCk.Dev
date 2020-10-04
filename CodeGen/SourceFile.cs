@@ -10,7 +10,9 @@ namespace IBA.SDsLiCk.CodeGen
     {
         public new enum Type
         {
-            Null, Source, Form, UserControl, Designer, Resource, Other
+            Null, Source, Form, UserControl, Designer, Resource, Other,
+            Project,
+            Solution
         }
 
         public FileRef Filepath { get; }

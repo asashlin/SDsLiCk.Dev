@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -6,7 +7,7 @@ using IBA.SDsLiCk.CodeGen;
 
 namespace IBA.SDsLiCk.CodeGen
 {
-   
+
     public static class StructBldr
     {
         public static NextStateFunc NextStateFunc { get; private set; }
@@ -32,13 +33,13 @@ namespace IBA.SDsLiCk.CodeGen
             return first;
         }
 
-        private static SourceStruct.Type IdentifyType(ref SourceObject next, out SourceObject end)
+        private static SourceType IdentifyType(ref SourceObject next, out SourceObject end)
         {
-            SourceStruct.Type ofType = SourceStruct.Type.Identifying;    // if not changed, this value indicates that could not be identified
+            SourceType ofType = SourceType.Identifying;    // if not changed, this value indicates that could not be identified
             switch (next.OfType)
             {
                 case TokenRef.Type.Keyword when next.Text == "using":
-                    ofType = SourceStruct.Type.Using;
+                    ofType = SourceType.Using;
                     break;
 
                 default:
@@ -48,5 +49,12 @@ namespace IBA.SDsLiCk.CodeGen
             end = next.Sequence;
             return ofType;
         }
+
+        #region Simple File operations section -code may be temporary
+        public static SourceStruct Build(FileRef simpleFile)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

@@ -22,8 +22,8 @@ namespace IBA.SDsLiCk.GUIBuilder
             if (!filepath.IsAbsoluteFilepath)
                 throw new ArgumentException($"Absolute Filepath required! ", nameof(filepath));
 
-            FileRef designer = filepath.CreateAs("Designer.cs");
-            FileRef resource = filepath.CreateAs("resx");
+            FileRef designer = filepath.CreateWith("Designer.cs");
+            FileRef resource = filepath.CreateWith("resx");
 
             SourceReference = new SourceRef(filepath, designer, resource);
             int i = 0;

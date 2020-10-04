@@ -68,9 +68,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SetupSrcRefForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetupSrcRefForm.Designer.cs">
+      <DependentUpon>SetupSrcRefForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SourceTreeEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SourceTreeEditor.Designer.cs">
+      <DependentUpon>SourceTreeEditor.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="LauncherForm.resx">
       <DependentUpon>LauncherForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetupSrcRefForm.resx">
+      <DependentUpon>SetupSrcRefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SourceTreeEditor.resx">
+      <DependentUpon>SourceTreeEditor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +117,13 @@
       <Project>{a118f547-e701-4250-b2bb-2ba163b392a2}</Project>
       <Name>GUIBuilder</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Browse.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

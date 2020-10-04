@@ -40,6 +40,7 @@
             this.c_pnlCtrlHlder = new System.Windows.Forms.Panel();
             this.c_tpSrcTreeEditor = new System.Windows.Forms.TabPage();
             this.c_splGUIBldr = new System.Windows.Forms.SplitContainer();
+            this.sourceTreeEditor1 = new SDsLiCk.Dev.SourceTreeEditor();
             this.c_tpGDTree = new System.Windows.Forms.TabPage();
             this.c_tvGDTree = new System.Windows.Forms.TreeView();
             this.c_ilIcons = new System.Windows.Forms.ImageList(this.components);
@@ -50,6 +51,7 @@
             this.c_tpGUIBldr.SuspendLayout();
             this.c_tpSrcTreeEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c_splGUIBldr)).BeginInit();
+            this.c_splGUIBldr.Panel1.SuspendLayout();
             this.c_splGUIBldr.SuspendLayout();
             this.c_tpGDTree.SuspendLayout();
             this.c_tpParseTree.SuspendLayout();
@@ -166,6 +168,7 @@
             // c_splGUIBldr.Panel1
             // 
             this.c_splGUIBldr.Panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.c_splGUIBldr.Panel1.Controls.Add(this.sourceTreeEditor1);
             // 
             // c_splGUIBldr.Panel2
             // 
@@ -174,6 +177,17 @@
             this.c_splGUIBldr.SplitterDistance = 511;
             this.c_splGUIBldr.TabIndex = 0;
             // 
+            // sourceTreeEditor1
+            // 
+            this.sourceTreeEditor1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sourceTreeEditor1.BackColor = System.Drawing.SystemColors.Control;
+            this.sourceTreeEditor1.Location = new System.Drawing.Point(0, -3);
+            this.sourceTreeEditor1.Name = "sourceTreeEditor1";
+            this.sourceTreeEditor1.Size = new System.Drawing.Size(511, 474);
+            this.sourceTreeEditor1.TabIndex = 0;
+            // 
             // c_tpGDTree
             // 
             this.c_tpGDTree.BackColor = System.Drawing.SystemColors.Control;
@@ -181,7 +195,7 @@
             this.c_tpGDTree.Location = new System.Drawing.Point(4, 22);
             this.c_tpGDTree.Name = "c_tpGDTree";
             this.c_tpGDTree.Padding = new System.Windows.Forms.Padding(3);
-            this.c_tpGDTree.Size = new System.Drawing.Size(767, 399);
+            this.c_tpGDTree.Size = new System.Drawing.Size(806, 474);
             this.c_tpGDTree.TabIndex = 3;
             this.c_tpGDTree.Text = "GDef Tree";
             // 
@@ -195,7 +209,7 @@
             this.c_tvGDTree.Location = new System.Drawing.Point(6, 6);
             this.c_tvGDTree.Name = "c_tvGDTree";
             this.c_tvGDTree.SelectedImageIndex = 0;
-            this.c_tvGDTree.Size = new System.Drawing.Size(755, 387);
+            this.c_tvGDTree.Size = new System.Drawing.Size(794, 462);
             this.c_tvGDTree.TabIndex = 1;
             // 
             // c_ilIcons
@@ -226,7 +240,7 @@
             this.c_tpParseTree.Location = new System.Drawing.Point(4, 22);
             this.c_tpParseTree.Name = "c_tpParseTree";
             this.c_tpParseTree.Padding = new System.Windows.Forms.Padding(3);
-            this.c_tpParseTree.Size = new System.Drawing.Size(767, 399);
+            this.c_tpParseTree.Size = new System.Drawing.Size(806, 474);
             this.c_tpParseTree.TabIndex = 4;
             this.c_tpParseTree.Text = "Parse Tree";
             this.c_tpParseTree.UseVisualStyleBackColor = true;
@@ -238,7 +252,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.c_tvParseTree.Location = new System.Drawing.Point(-5, 0);
             this.c_tvParseTree.Name = "c_tvParseTree";
-            this.c_tvParseTree.Size = new System.Drawing.Size(776, 403);
+            this.c_tvParseTree.Size = new System.Drawing.Size(815, 478);
             this.c_tvParseTree.TabIndex = 0;
             // 
             // LauncherForm
@@ -249,11 +263,13 @@
             this.Controls.Add(this.c_tcProject);
             this.Name = "LauncherForm";
             this.Text = "SDsLiCk Development Launcher";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LauncherForm_FormClosed);
             this.c_tcProject.ResumeLayout(false);
             this.c_tpFormAnalyser.ResumeLayout(false);
             this.c_tpFormAnalyser.PerformLayout();
             this.c_tpGUIBldr.ResumeLayout(false);
             this.c_tpSrcTreeEditor.ResumeLayout(false);
+            this.c_splGUIBldr.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c_splGUIBldr)).EndInit();
             this.c_splGUIBldr.ResumeLayout(false);
             this.c_tpGDTree.ResumeLayout(false);
@@ -279,6 +295,7 @@
         private System.Windows.Forms.TreeView c_tvParseTree;
         private System.Windows.Forms.TreeView c_tvGDTree;
         private System.Windows.Forms.ImageList c_ilIcons;
+        private SourceTreeEditor sourceTreeEditor1;
     }
 }
 

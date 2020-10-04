@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IBA.SDsLiCk.GUIBuilder;
+using SDsLiCk.Dev.Properties;
 
 namespace SDsLiCk.Dev
 {
@@ -26,6 +27,9 @@ namespace SDsLiCk.Dev
             c_clbForms.Items.Add("IBA.SDsLiCk.CodeGen.Simple", true);
             c_clbForms.Items.Add("SDsLiCk.Dev.LauncherForm", false);
             //CtrlParser.GenerateGDTree(c_tvGDTree);  used for CtrlParser using XBldr
+            if (Settings.Default.LastWorkingDir == string.Empty)
+                Settings.Default.LastWorkingDir = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
         }
 
         private void c_butAnalyse_Click(object sender, EventArgs e)
@@ -78,6 +82,11 @@ namespace SDsLiCk.Dev
             //}
 
             //Debug.WriteLine("");
+        }
+
+        private void LauncherForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Settings.Default.Save();
         }
     }
 }

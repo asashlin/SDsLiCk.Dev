@@ -5,15 +5,18 @@ using System.Text;
 
 namespace IBA.SDsLiCk.CodeGen
 {
-    /// <summary>Base for; 1. a Source Snippet used as components to SourceStructs, 2. SourceStruct class (and their derived classes)</summary>
+    /// <summary>
+    /// Base for; 1. a Source Snippet used as components to SourceStructs, 2.
+    /// SourceStruct class (and their derived classes)
+    /// </summary>
     public abstract class SourceSnippet
     {
         public SourceObject End { get; set; }    // the object that ends (terminates) this SourceStruct -it also holds the last object processed until the structure is completed
-        public SourceStruct.Type OfType { get; }
+        public SourceType OfType { get; }
         public string Name { get; protected set; }
         public SourceObject Sequence { get; protected set; }
 
-        protected SourceSnippet(SourceStruct.Type type, SourceObject start)
+        protected SourceSnippet(SourceType type, SourceObject start)
         {
             OfType = type;
             Name = "";              // name maybe set by inherited class 
@@ -21,7 +24,7 @@ namespace IBA.SDsLiCk.CodeGen
             End = null;          // designates an empty Struct -e.g. a QName without a Namespace
         }
 
-        protected SourceSnippet(string name, SourceStruct.Type type, SourceObject start)
+        protected SourceSnippet(string name, SourceType type, SourceObject start)
         {
             OfType = type;
             Name = name;              // name maybe set by inherited class 
@@ -29,21 +32,21 @@ namespace IBA.SDsLiCk.CodeGen
             End = null;          // designates an empty Struct -e.g. a QName without a Namespace
         }
 
-        protected SourceSnippet(SourceObject start, SourceStruct.Type type)
+        protected SourceSnippet(SourceObject start, SourceType type)
         {
             OfType = type;
             Name = "";              // name maybe set by inherited class 
             Sequence = start;
         }
 
-        protected SourceSnippet(string name, SourceObject start, SourceStruct.Type type)
+        protected SourceSnippet(string name, SourceObject start, SourceType type)
         {
             OfType = type;
             Name = name;
             Sequence = start;
         }
 
-        protected SourceSnippet(SourceObject start, SourceObject end, SourceStruct.Type type)
+        protected SourceSnippet(SourceObject start, SourceObject end, SourceType type)
         {
             OfType = type;
             Name = "";              // name maybe set by inherited class 
@@ -52,7 +55,7 @@ namespace IBA.SDsLiCk.CodeGen
 
         }
 
-        protected SourceSnippet(string name, SourceObject start, SourceObject end, SourceStruct.Type type)
+        protected SourceSnippet(string name, SourceObject start, SourceObject end, SourceType type)
         {
             OfType = type;
             Name = name;
